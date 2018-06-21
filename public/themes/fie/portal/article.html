@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$article.post_title}</title>
+    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$site_info.site_seo_description|default=''}">
+    <include file="public@head"/>
+</head>
+<body>
+<include file="public@category_head" />
+<include file="public@nav" />
+<div class="clear"></div>
+<div class="resource_continer">
+    <div class="c_c_content">
+        <div class="content_title">
+            {$article.post_title}
+        </div>
+        <div class="content_content">
+            {$article.post_content}
+        </div>
+        <div class="content_line"></div>
+        <div class="content_back">
+            <div class="c_back">
+                <a href="{:cmf_url('portal/List/index',['id'=>$category.id])}"><span><<</span>BACK LIST</a>
+            </div>
+            <div class="c_tu">
+                <a href="" id="facebook" ><img src="/style/images/face.png" alt=""></a>
+                <a href="" id="twitter"><img src="/style/images/turwer.png" alt=""></a>
+            </div>
+            <div class="back_top">
+                <a id="top"><img src="/style/images/back.png" alt="">BACK TOP</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/JavaScript">
+    function popupwindow(url, title, w, h) {
+        wLeft = window.screenLeft ? window.screenLeft : window.screenX;
+        wTop = window.screenTop ? window.screenTop : window.screenY;
+
+        var left = wLeft + (window.innerWidth / 2) - (w / 2);
+        var top = wTop + (window.innerHeight / 2) - (h / 2);
+        return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+    }
+    window.onload = function () {
+        // url = window.location.href;
+        // document.getElementById('facebook').onclick = function(){
+        //     var shareUrl = "http://www.facebook.com/sharer/sharer.php?u="+url;
+        //     popupwindow(shareUrl, 'Facebook', 600, 400);
+        // }
+        // document.getElementById('twitter').onclick = function(){
+        //     var shareUrl = "https://twitter.com/intent/tweet?url="+url;
+        //     popupwindow(shareUrl, 'Facebook', 600, 400);
+        // }
+    }
+</script>
+<include file="public@footer" />
+<script src="js/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#top').click(function () {
+            $("html,body").animate({scrollTop:0}, 500);
+        })
+    })
+</script>
+</body>
+</html>

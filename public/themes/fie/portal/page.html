@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$page.post_title}</title>
+    <meta name="keywords" content="{$page.post_keywords}"/>
+    <meta name="description" content="{$page.post_excerpt}">
+    <include file="public@head"/>
+</head>
+<body>
+<include file="public@page_head" />
+<include file="public@nav" />
+<div class="clear"></div>
+<div class="about">
+    <div class="about_title">
+        {$page.post_subtitle}
+    </div>
+    <div class="about_line"></div>
+    <div class="about_content">
+        {$page.post_content}
+    </div>
+</div>
+<include file="public@footer" />
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$category.name} {$category.seo_title} {$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$category.seo_keywords},{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$category.seo_description},{$site_info.site_seo_description|default=''}">
+    <include file="public@head" />
+</head>
+<body>
+<include file="public@category_head" />
+<include file="public@nav" />
+<div class="clear"></div>
+<div class="resource_list">
+    <div class="r_list_title">
+        {$category.description}
+    </div>
+    <php>
+        $page = [
+            'list_rows' => 6,
+            'prev' => '<',
+            'next' => '>'
+        ];
+    </php>
+    <div class="r_list_page">
+        <portal:articles categoryIds="$category.id" order="post.published_time desc" page="$page"></portal:articles>
+        <ul>
+            <page />
+        </ul>
+    </div>
+</div>
+<div class="resource_hui">
+    <div class="r_hui_center">
+        <ul>
+            <portal:articles categoryIds="$category.id" order="post.published_time desc" page="$page">
+                <li>
+                    <php>
+                        if($i == 1){
+                            $post_id = $vo['id'];
+                        }
+                    </php>
+                    <div class="fitness_three">
+                        <div class="fitness_three_img">
+                            <a href="{:cmf_url('portal/Article/index',['id'=>$vo.id,'cid'=>$vo.category_id])}">
+                                <img src="{:cmf_get_image_url($vo.more.thumbnail)}" alt="{$vo.post_title}">
+                            </a>
+                        </div>
+                        <div class="fitness_three_title">
+                            <a href="{:cmf_url('portal/Article/index',['id'=>$vo.id,'cid'=>$vo.category_id])}">
+                                {$vo.post_title}
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </portal:articles>
+        </ul>
+    </div>
+</div>
+<div class="resource_red">
+    <div class="r_hui_center">
+        <ul>
+            <portal:articles categoryIds="$category.id" order="post.published_time asc" page="$page">
+                <li>
+                    <div class="fitness_three">
+                        <div class="fitness_three_img">
+                            <a href="{:cmf_url('portal/Article/index',['id'=>$vo.id,'cid'=>$vo.category_id])}">
+                                <img src="{:cmf_get_image_url($vo.more.thumbnail)}" alt="{$vo.post_title}">
+                            </a>
+                        </div>
+                        <div class="fitness_three_title">
+                            <a href="{:cmf_url('portal/Article/index',['id'=>$vo.id,'cid'=>$vo.category_id])}">
+                                {$vo.post_title}
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </portal:articles>
+        </ul>
+    </div>
+</div>
+<div class="resource_back">
+    <div class="back_home">
+        <a href="__ROOT__/"><span><<</span>BACK HOME</a>
+    </div>
+    <div class="r_list_page">
+        <ul>
+            <page />
+        </ul>
+    </div>
+</div>
+<include file="public@footer" />
+</body>
+</html>

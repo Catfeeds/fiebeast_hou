@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$article.post_title}</title>
+    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$site_info.site_seo_description|default=''}">
+    <include file="public@head"/>
+</head>
+<body>
+<include file="public@category_head" />
+<include file="public@nav" />
+<div class="clear"></div>
+<div class="resource_continers">
+    <div class="c_c_content">
+        <div class="content_title">
+            {$article.post_title}
+        </div>
+        <div class="content_content">
+            {$article.post_content}
+        </div>
+        <div class="content_back">
+            <div class="c_backs">
+                <a href="{:cmf_url('portal/List/index',['id'=>$category.id])}"><span><<</span>BACK LIST</a>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="public@footer" />
+</body>
+</html>

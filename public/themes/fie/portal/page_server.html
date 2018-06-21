@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$page.post_title}</title>
+    <meta name="keywords" content="{$page.post_keywords}"/>
+    <meta name="description" content="{$page.post_excerpt}">
+    <include file="public@head"/>
+</head>
+<body>
+<include file="public@page_head" />
+<include file="public@nav" />
+<div class="clear"></div>
+<div class="customer">
+    <div class="about">
+        <div class="about_title">
+            {$page.post_subtitle}
+        </div>
+        <div class="contact_line"></div>
+        <div class="contact_content">
+            <div class="contact_get">GET IN TOUCH</div>
+            <form action="" method="post">
+                <div class="contact_input">
+                    <div class="c_i_name">
+                        <div class="c_i_name_name">NAME <span>*</span></div>
+                        <div class="c_i_input">
+                            <input type="text" name="name" id="name" placeholder="NAME">
+                        </div>
+                    </div>
+                    <div class="c_i_email">
+                        <div class="c_i_name_name">E-MAIL <span>*</span></div>
+                        <div class="c_i_input">
+                            <input type="text" name="email" id="email" PLACEHOLDER="E-MAIL">
+                        </div>
+                    </div>
+                </div>
+                <div class="contact_message">
+                    <div class="c_i_name_name">MESSAGE <span>*</span></div>
+                    <div class="c_m_textarea">
+                        <textarea name="message" id="message" cols="30" rows="10" placeholder="MESSAGE"></textarea>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="contact_send">
+                    <input type="submit" value="SEND">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="customer_line"></div>
+    <div class="month_day">
+        <div class="day">
+            <div class="m_d_left">
+                <div class="month_day_title">{$page.post_txque1}</div>
+                {:htmlspecialchars_decode($page.post_txjd1)}
+            </div>
+            <div class="m_d_right">
+                <div class="m_d_right_zi_img">
+                    <img src="/style/images/clogo.png" alt="">
+                </div>
+                <div class="m_d_right_line"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="day">
+            <div class="m_d_left">
+                <div class="month_day_title">{$page.post_txque2}</div>
+                {:htmlspecialchars_decode($page.post_txjd2)}
+            </div>
+            <div class="m_d_right">
+                <div class="m_d_right_zi">
+                    <div class="zi_top">18</div>
+                    <div class="zi_bottom">MONTH</div>
+                </div>
+                <div class="m_d_right_line"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="customer_line"></div>
+    <div class="question">
+        <div class="day">
+            <div class="m_d_left">
+                <div class="month_day_title_faq">FAQs:</div>
+                {$page.post_content}
+            </div>
+            <div class="m_d_right">
+                <div class="m_d_right_zi_btm">
+                    <div class="zi_top">?</div>
+                </div>
+                <div class="m_d_right_line_btm"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<include file="public@footer" />
+</body>
+</html>

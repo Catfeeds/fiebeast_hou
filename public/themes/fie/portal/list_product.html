@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$category.name} {$category.seo_title} {$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$category.seo_keywords},{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$category.seo_description},{$site_info.site_seo_description|default=''}">
+    <include file="public@head" />
+</head>
+<body>
+<include file="public@category_head" />
+<include file="public@nav" />
+<div class="clear"></div>
+<div class="fitproducts">
+    <div class="products_pro">
+        <ul>
+            <php>
+                $page = [
+                    'list_rows' => 12,
+                    'prev' => '<',
+                    'next' => '>'
+                ];
+            </php>
+            <portal:articles categoryIds="$category.id" order="post.published_time desc" page="$page">
+                <li>
+                    <div class="pro_img">
+                        <a href="{:cmf_url('portal/Article/index',['id'=>$vo.id,'cid'=>$vo.category_id])}">
+                            <img src="{:cmf_get_image_url($vo.more.thumbnail)}" alt="">
+                        </a>
+                    </div>
+                    <div class="pro_title">
+                        <p>{$vo.post_title}</p>
+                        <p class="daole">${$vo.post_price}</p>
+                        <div class="xing">
+                            <switch name="$vo.post_start">
+                                <case value="1">
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                    <p></p>
+                                    <p></p>
+                                    <p></p>
+                                    <p></p>
+                                </case>
+                                <case value="2">
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                    <p></p>
+                                    <p></p>
+                                    <p></p>
+                                </case>
+                                <case value="3">
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                    <p></p>
+                                    <p></p>
+                                </case>
+                                <case value="4">
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                    <p></p>
+                                </case>
+                                <case value="5">
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                    <p><img src="/style/images/redhong.png" alt=""></p>
+                                </case>
+                                <default />
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                            </switch>
+                        </div>
+                    </div>
+                </li>
+            </portal:articles>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+<div class="product_line"></div>
+<div class="product_back">
+    <div class="back_home">
+        <a href="__ROOT__/"><span><<</span>BACK HOME</a>
+    </div>
+    <div class="r_list_page">
+        <ul>
+        <page />
+        </ul>
+    </div>
+</div>
+<include file="public@footer" />
+</body>
+</html>

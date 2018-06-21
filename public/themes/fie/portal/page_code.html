@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$page.post_title}</title>
+    <meta name="keywords" content="{$page.post_keywords}"/>
+    <meta name="description" content="{$page.post_excerpt}">
+    <include file="public@head"/>
+</head>
+<body>
+<include file="public@page_head" />
+<include file="public@nav" />
+<div class="clear"></div>
+<div class="about">
+    <div class="message_piao">
+        <div class="m_p_logo">
+            <img src="/style/images/msg_logo.png" alt="">
+        </div>
+        <div class="m_p_line"></div>
+        <div class="m_p_title">
+            {$page.post_subtitle}
+        </div>
+        <form action="" method="post">
+            <div class="m_p_da">
+                <div class="m_p_input">
+                    <input type="text" name="firstname" placeholder="FIRST NAME">
+                </div>
+                <div class="m_p_input">
+                    <input type="text" name="lastname" placeholder="LAST NAME">
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="m_p_email">
+                <input type="text" name="email" placeholder="E-MAIL">
+            </div>
+            <div class="m_p_btn">
+                <button type="submit">Get Discount Code</button>
+            </div>
+        </form>
+    </div>
+</div>
+<include file="public@footer" />
+</body>
+</html>

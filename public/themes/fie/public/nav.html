@@ -1,0 +1,26 @@
+<div class="nav">
+    <div class="nav_laft">
+        <ul>
+            <navigation nav-id="1" root="">
+                <navigationMenu root="li">
+                    <a href="{$menu.href|default=''}" target="{$menu.target|default=''}">{$menu.name|default=''}</a>
+                </navigationMenu>
+            </navigation>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="nav_right">
+        <img src="/style/images/logo.png" alt="">
+    </div>
+    <div class="clear"></div>
+</div>
+<script src="/style/js/jquery.js"></script>
+<script>
+    $(function () {
+        $(".nav_laft ul li a").each(function() {
+            if ($(this)[0].href == String(window.location)) {
+                $(this).addClass("active");
+            }
+        });
+    })
+</script>

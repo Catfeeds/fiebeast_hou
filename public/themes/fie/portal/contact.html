@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$page.post_title}</title>
+    <meta name="keywords" content="{$page.post_keywords}"/>
+    <meta name="description" content="{$page.post_excerpt}">
+    <include file="public@head"/>
+</head>
+<body>
+<include file="public@page_head" />
+<include file="public@nav" />
+<div class="clear"></div>
+<div class="about">
+    <div class="about_title">
+        {$page.post_subtitle}
+    </div>
+    <div class="contact_line"></div>
+    <div class="contact_content">
+        <div class="contact_get">GET IN TOUCH</div>
+        <form action="" method="post">
+            <div class="contact_input">
+                <div class="c_i_name">
+                    <div class="c_i_name_name">NAME <span>*</span></div>
+                    <div class="c_i_input">
+                        <input type="text" name="name" id="name" placeholder="NAME">
+                    </div>
+                </div>
+                <div class="c_i_email">
+                    <div class="c_i_name_name">E-MAIL <span>*</span></div>
+                    <div class="c_i_input">
+                        <input type="text" name="email" id="email" PLACEHOLDER="E-MAIL">
+                    </div>
+                </div>
+            </div>
+            <div class="contact_message">
+                <div class="c_i_name_name">MESSAGE <span>*</span></div>
+                <div class="c_m_textarea">
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="MESSAGE"></textarea>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="contact_send">
+                <input type="submit" value="SEND">
+            </div>
+        </form>
+        <div class="contact_cust">
+            <div class="c_cust_left">
+                <div class="c_c_left_title">Customer Service Inquiries</div>
+                <div class="c_c_left_des">The Simple Strength Trick To Get The Most </div>
+            </div>
+            <div class="c_cust_right">
+                <div class="c_c_right_email">
+                    <img src="/style/images/email.png" alt="">
+                </div>
+                <div class="c_c_right_des">
+                    <a href="mailto:{$page.post_excerpt}">Email Us  {$page.post_excerpt}</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<include file="public@footer" />
+</body>
+</html>

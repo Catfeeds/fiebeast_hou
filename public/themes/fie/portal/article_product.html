@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$article.post_title}</title>
+    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$site_info.site_seo_description|default=''}">
+    <include file="public@head"/>
+</head>
+<body>
+<include file="public@category_head" />
+<include file="public@nav" />
+<div class="clear"></div>
+<div class="shop">
+    <div class="shop_top">
+        <div class="img_list">
+            <ul>
+                <notempty name="$article.more.photos">
+                    <volist name="$article.more.photos" id="vi">
+                        <li class="dz"><img src="{:cmf_get_image_url($vi.url)}" <if condition="$i eq 1"> class="active" </if> alt="{$vi.name}"></li>
+                    </volist>
+                </notempty>
+            </ul>
+        </div>
+        <div class="top_left">
+            <img src="{:cmf_get_image_url($article.more.thumbnail)}" alt="">
+        </div>
+        <div class="shop_right">
+            <div class="right_title">{$article.post_title} <span>${$article.post_price}</span></div>
+            <div class="right_line"></div>
+            <div class="right_xing">
+                <ul>
+                    <switch name="$article.post_start">
+                        <case value="1">
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </case>
+                        <case value="2">
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </case>
+                        <case value="3">
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                            <li></li>
+                            <li></li>
+                        </case>
+                        <case value="4">
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                            <li></li>
+                        </case>
+                        <case value="5">
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                            <li><img src="/style/images/redhong.png" alt=""></li>
+                        </case>
+                        <default />
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </switch>
+                </ul>
+                <span>{$article.post_hits} Reviews</span>
+            </div>
+            <div class="clear"></div>
+            <div class="right_des">
+                {$article.post_excerpt}
+            </div>
+            <div class="right_buy">
+                <div class="buy_left">
+                    <div class="buy_left_left">
+                        <a href="{$article.post_source}" target="_blank">BUY ON AMAZON</a>
+                    </div>
+                </div>
+                <div class="buy_right">
+                    SHARE:
+                    <a href=""><img src="/style/images/face.png" alt=""></a>
+                    <a href=""><img src="/style/images/turwer.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="shop_center">
+        <div class="products">
+            <div class="products_title">
+                Related
+                product
+            </div>
+            <div class="products_line"></div>
+            <div class="products_pro">
+                <ul>
+                    <php>
+                        $where = [
+                            'recommended' => 1
+                        ];
+                    </php>
+                    <portal:articles categoryIds="$category.id" order="post.published_time desc" where="$where" limit="4" item="vo">
+                        <li>
+                            <div class="pro_img">
+                                <a href="{:cmf_url('portal/Article/index',['id'=>$vo.id,'cid'=>$vo.category_id])}">
+                                    <img src="{:cmf_get_image_url($vo.more.thumbnail)}" alt="{$vo.post_title}">
+                                </a>
+                            </div>
+                            <div class="pro_title">
+                                <p>{$vo.post_title}</p>
+                                <p class="daole">${$vo.post_price}</p>
+                                <div class="xing">
+                                    <switch name="$vo.post_start">
+                                        <case value="1">
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                            <p></p>
+                                            <p></p>
+                                            <p></p>
+                                            <p></p>
+                                        </case>
+                                        <case value="2">
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                            <p></p>
+                                            <p></p>
+                                            <p></p>
+                                        </case>
+                                        <case value="3">
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                            <p></p>
+                                            <p></p>
+                                        </case>
+                                        <case value="4">
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                            <p></p>
+                                        </case>
+                                        <case value="5">
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                            <p><img src="/style/images/redhong.png" alt=""></p>
+                                        </case>
+                                        <default />
+                                        <p></p>
+                                        <p></p>
+                                        <p></p>
+                                        <p></p>
+                                        <p></p>
+                                    </switch>
+                                </div>
+                            </div>
+                        </li>
+                    </portal:articles>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+        </div>
+        <notempty name="$article.post_txque1">
+            <div class="shop_container">
+                <div class="container_title">{$article.post_txque1}</div>
+                <div class="container_des">
+                    {$article.post_txjd1}
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="shop_line"></div>
+        </notempty>
+        <notempty name="$article.post_txque2">
+            <div class="shop_container">
+                <div class="container_title">{$article.post_txque2}</div>
+                <div class="container_des">
+                    {$article.post_txjd2}
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="shop_line"></div>
+        </notempty>
+        <notempty name="$article.post_txque3">
+            <div class="shop_container">
+                <div class="container_title">{$article.post_txque3}</div>
+                <div class="container_des">
+                    {$article.post_txjd3}
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="shop_line"></div>
+        </notempty>
+        <notempty name="$article.post_txque4">
+            <div class="shop_container">
+                <div class="container_title">{$article.post_txque4}</div>
+                <div class="container_des">
+                    {$article.post_txjd4}
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="shop_line"></div>
+        </notempty>
+        <notempty name="$article.post_txque5">
+            <div class="shop_container">
+                <div class="container_title">{$article.post_txque5}</div>
+                <div class="container_des">
+                    {$article.post_txjd5}
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="shop_line"></div>
+        </notempty>
+    </div>
+    <div class="shop_bottom">
+        <div class="bottom_title">
+            Product
+            description
+        </div>
+        <div class="bottom_line"></div>
+        <div class="bottom_des">
+            {$article.post_excerptd}
+        </div>
+        <div class="bottom_container">
+            {$article.post_content}
+        </div>
+    </div>
+</div>
+<include file="public@footer" />
+<script src="/style/js/jquery.js"></script>
+<script src="/style/js/qiehuan.js"></script>
+</body>
+</html>
